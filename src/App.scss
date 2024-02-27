@@ -1,0 +1,9 @@
+$mainBgColor: #0e1323;
+
+.main-container {
+  background-color: $mainBgColor;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 100dvh;
+}
