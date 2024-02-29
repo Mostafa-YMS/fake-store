@@ -1,9 +1,58 @@
+@use "sass:map";
+
 $mainBgColor: #0e1323;
+$breakpoints: (
+  sm: 576px,
+  // Small devices
+  md: 768px,
+  // Medium devices
+  lg: 992px,
+  // Large devices
+  xl: 1200px,
+  // Extra large devices
+);
+
+@function breakpoint($breakpoint) {
+  @return map.get($breakpoints, $breakpoint);
+}
 
 .main-container {
   background-color: $mainBgColor;
   display: grid;
   place-items: center;
-  height: 100%;
   min-height: 100dvh;
+  @media (max-width: breakpoint("md")) {
+    padding: 81px 24px;
+  }
+  @media (min-width: breakpoint("md")) and (max-width: breakpoint("lg")) {
+    padding: 81px 24px;
+  }
+
+  @media (min-width: breakpoint("lg")) {
+    padding: 81px 112px;
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-gap: 33px;
+  grid-template-columns: repeat(12, 1fr);
+
+  @media (max-width: breakpoint("md")) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .best-sales {
+    grid-column: span 2;
+    @media (max-width: breakpoint("md")) {
+      grid-column: span 1;
+    }
+  }
+
+  .products-container {
+    grid-column: span 10;
+    @media (max-width: breakpoint("md")) {
+      grid-column: span 1;
+    }
+  }
 }
