@@ -1,12 +1,11 @@
 @import "./styles/functions.scss";
-$mainBgColor: #0e1323;
 
 * {
   box-sizing: border-box;
 }
 
 .main-container {
-  background-color: $mainBgColor;
+  background-color: #0e1323;
   display: grid;
   place-items: center;
   min-height: 100vh;
