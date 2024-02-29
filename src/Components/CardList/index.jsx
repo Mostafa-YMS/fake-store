@@ -18,10 +18,13 @@ function getRandomColor() {
 
 const CardList = () => {
   const [products, setProducts] = useState();
+  const [loading, setLoading] = useState();
 
   const fetchProducts = useCallback(async () => {
+    setLoading(true);
     const data = await getProductsService();
     setProducts(data);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -29,13 +32,19 @@ const CardList = () => {
   }, [fetchProducts]);
 
   return (
-    <div className="card-grid">
-      {products?.map((product) => (
-        <div key={product?.id} className="grid-item">
-          <ProductCard product={product} getRandomColor={getRandomColor} />
+    <>
+      {loading ? (
+        <div className="loading">loading...</div>
+      ) : (
+        <div className="card-grid">
+          {products?.map((product) => (
+            <div key={product?.id} className="grid-item">
+              <ProductCard product={product} getRandomColor={getRandomColor} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      )}
+    </>
   );
 };
 
