@@ -1,0 +1,31 @@
+@import "../../styles/functions.scss";
+
+.card-grid {
+  display: grid;
+  grid-gap: 33px;
+  grid-template-columns: repeat(10, 1fr);
+
+  @media (min-width: breakpoint("lg")) and (max-width: breakpoint("xxl")) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media (max-width: breakpoint("md")) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid-item {
+    grid-column: span 2;
+
+    @media (max-width: breakpoint("md")) {
+      grid-column: span 1;
+    }
+
+    @media (min-width: breakpoint("md")) and (max-width: breakpoint("lg")) {
+      grid-column: span 5;
+    }
+
+    @media (min-width: breakpoint("lg")) and (max-width: breakpoint("xxl")) {
+      grid-column: span 4;
+    }
+  }
+}

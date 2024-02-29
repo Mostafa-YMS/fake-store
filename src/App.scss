@@ -1,26 +1,16 @@
-@use "sass:map";
-
+@import "./styles/functions.scss";
 $mainBgColor: #0e1323;
-$breakpoints: (
-  sm: 576px,
-  // Small devices
-  md: 768px,
-  // Medium devices
-  lg: 992px,
-  // Large devices
-  xl: 1200px,
-  // Extra large devices
-);
 
-@function breakpoint($breakpoint) {
-  @return map.get($breakpoints, $breakpoint);
+* {
+  box-sizing: border-box;
 }
 
 .main-container {
   background-color: $mainBgColor;
   display: grid;
   place-items: center;
-  min-height: 100dvh;
+  min-height: 100vh;
+
   @media (max-width: breakpoint("md")) {
     padding: 81px 24px;
   }
@@ -47,12 +37,18 @@ $breakpoints: (
     @media (max-width: breakpoint("md")) {
       grid-column: span 1;
     }
+    @media (min-width: breakpoint("md")) and (max-width: breakpoint("xxl")) {
+      grid-column: span 12;
+    }
   }
 
   .products-container {
     grid-column: span 10;
     @media (max-width: breakpoint("md")) {
       grid-column: span 1;
+    }
+    @media (min-width: breakpoint("md")) and (max-width: breakpoint("xxl")) {
+      grid-column: span 12;
     }
   }
 }
