@@ -1,4 +1,5 @@
 import "./App.scss";
+import BestSales from "./Components/BestSales";
 import CardList from "./Components/CardList";
 
 function App() {
@@ -6,7 +7,9 @@ function App() {
     <div className="main-container">
       <div style={{ width: "100%" }}>
         <div className="main-grid">
-          <div className="best-sales"></div>
+          <div className="best-sales">
+            <BestSales />
+          </div>
           <div className="products-container">
             <CardList />
           </div>

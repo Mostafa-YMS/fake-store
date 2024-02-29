@@ -1,0 +1,97 @@
+@import "../../styles/functions.scss";
+
+$radius: 16px;
+$primary-text: #ffffff;
+$secondary-text: #7078c9;
+$tertiary-text: #bbc0ff;
+$content-bg: #5747ea;
+$main-bg: #1c204b;
+
+.best-sales {
+  border-radius: $radius;
+  background-color: $main-bg;
+  p {
+    margin: 0;
+  }
+
+  .content {
+    border-radius: $radius;
+    background-color: $content-bg;
+    padding: 20px;
+    padding-top: 30px;
+
+    @media (max-width: breakpoint("xxl")) {
+      padding: 30px;
+    }
+
+    @media (max-width: breakpoint("xxl")) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-container {
+      @media (min-width: breakpoint("xxl")) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      @media (max-width: breakpoint("xxl")) {
+        margin-right: 20px;
+      }
+
+      .avatar {
+        border-radius: 50%;
+        width: 138px;
+        height: 145px;
+        border: 3px solid #ffffff;
+        box-shadow: 4px 7px 8px 0px #00000040;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    .subtitle {
+      font-size: 15px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+      color: $tertiary-text;
+    }
+
+    .title {
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 47px;
+      letter-spacing: 12px;
+      color: $primary-text;
+
+      @media (max-width: breakpoint("xxl")) {
+        letter-spacing: normal;
+      }
+    }
+  }
+
+  .time {
+    padding: 30px;
+    font-size: 18px;
+    @media (max-width: breakpoint("xxl")) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main {
+      color: $primary-text;
+      margin: 21px 0px;
+    }
+    .secondary {
+      color: $secondary-text;
+    }
+  }
+}
